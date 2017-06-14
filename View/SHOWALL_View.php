@@ -10,8 +10,31 @@ class SHOWALL_View
             <link rel='stylesheet' href='View/css/showall.css'>
         </head>
         <body>
+        <div class=\"container\">
+             <div class=\"header\">
+             </div>
+        <div class=\"sidebar\">
+             <ul>
+                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=ADD\" method=\"post\">Add Alumno</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=DELETE&id=dni\" method=\"post\">Delete Alumno</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWCURRENT&id=dni\" method=\"post\">ShowCurrent Alumno</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">ShowAll Alumno</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=UPDATE&id=dni\" method=\"post\">Update Alumno</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=ADD\" method=\"post\">Add Asignatura</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=DELETE&id=id\" method=\"post\">Delete Asignatura</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">SHOWALL Asignatura</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWCURRENT&id=id\" method=\"post\">SHOWCURRENT Asignatura</a></li>
+                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=UPDATE&id=id\" method=\"post\">Update Asignatura</a></li>
+             </ul>
+        </div>
+        <div class=\"content\">
+            <a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\">Volver</a>
         <h1>{{header}}</h1>
        {{data}}
+       </div>
+        <div class=\"footer\">
+        </div>
+        </div>
         </body>
         </html>";
     const TITTLE_KEY = "{{tittle}}";
@@ -83,6 +106,8 @@ class SHOWALL_View
         foreach ($this->field_list as $field) {
             $table = $table . "<th>" . utf8_encode($field . "</th>");
         }
+        $table.="<th>CONTROLES</th>";
+        $table=$table."</tr>";
         foreach ($this->values_list as $value) {
             $table = $table . "<tr>";
             foreach ($this->field_list as $field) {
@@ -92,6 +117,9 @@ class SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
+            $table.='<td><a class="enlace" href="?controller=ALUMNO&action=UPDATE&id='.$value["dni"].'"><img src="View/icons/iconEdit.png"/> </a> 
+                     <a class="enlace" href="?controller=ALUMNO&action=DELETE&id='.$value["dni"].'"><img src="View/icons/Eraser-icon.png"/></a>
+                     <a class="enlace" href="?controller=ALUMNO&action=SHOWCURRENT&id='.$value["dni"].'"><img src="View/icons/Search-icon.png"/></a></td>';
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";
