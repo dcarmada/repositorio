@@ -75,4 +75,4 @@ categoria=:categoria WHERE id=:id";
             throw new Exception(("ERROR DataBase"));
         }
     }
-    }
+}

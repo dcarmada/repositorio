@@ -4,9 +4,10 @@ class SHOWALL_View
 {
     const HTML_SKELETON = "
         <html>
-        <head>
+        <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
+            <link rel='stylesheet' href='View/css/showall.css'>
         </head>
         <body>
         <h1>{{header}}</h1>

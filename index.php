@@ -8,7 +8,6 @@ $action = "showAll";
 if (isset($_GET["action"])) {
     $action = strtoupper($_GET["action"]);
     if (!function_exists($action)) {
-        echo "Hola";
         $action = "SHOWALL";
     }
 }

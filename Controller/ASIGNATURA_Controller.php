@@ -40,7 +40,7 @@ function add()
     } else {
         $asignatura = new ASIGNATURA_Model();
         $asignatura->addAsignatura($_POST['id'], $_POST['nombre'], $_POST['num_creditos'],
-             $_POST['departamento'],
+            $_POST['departamento'],
             $_POST['categoria']);
         echo "Insertada";
     }

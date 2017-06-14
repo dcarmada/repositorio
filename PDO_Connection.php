@@ -11,7 +11,7 @@ class PDO_Connection
 
     public static function getConnection()
     {
-         return new PDO(self::DRIVER . ":host=" . self::HOST . ";dbname=" . self::DBNAME . ";port=" . self::PORT, self::USER,
+        return new PDO(self::DRIVER . ":host=" . self::HOST . ";dbname=" . self::DBNAME . ";port=" . self::PORT, self::USER,
             self::PASSWORD);
     }
 }

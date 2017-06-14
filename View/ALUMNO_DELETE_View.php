@@ -34,12 +34,32 @@ class ALUMNO_DELETE_View
         <html>
         <head>
             <title>Delete Alumno</title>
+            <link rel="stylesheet" type="text/css" href="View/css/delete.css">
             <meta>
         </head>
         <body>
-        <h3>Borrar Alumno</h3>
+        <div class="container">
+            <div class="header">
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=ADD" method="post">Add Alumno</a></li>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=DELETE&id=dni" method="post">Delete Alumno</a></li>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=SHOWCURRENT&id=dni" method="post">ShowCurrent Alumno</a></li>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=SHOWALL" method="post">ShowAll Alumno</a></li>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=UPDATE&id=dni" method="post">Update Alumno</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=ADD" method="post">Add Asignatura</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=DELETE&id=id" method="post">Delete Asignatura</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=SHOWALL" method="post">SHOWALL Asignatura</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=SHOWCURRENT&id=id" method="post">SHOWCURRENT Asignatura</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=UPDATE&id=id" method="post">Update Asignatura</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <a class="enlace" href="?controller=ALUMNO&action=SHOWALLView">Volver</a>
+        <h1>Borrar Alumno</h1>
         <form
-                action="?controller=ALUMNO&action=DELETE&id=<?php echo $this->values_list["dni"];  ?>" method="post">
+            action="?controller=ALUMNO&action=DELETE&id=<?php echo $this->values_list["dni"];  ?>" method="post">
             <label for="dni">DNI <?php echo $this->values_list["dni"];  ?></label><br>
             <input type="hidden" name="DNI" value="<?php echo $this->values_list["dni"];  ?>">
             <br>
@@ -69,6 +89,10 @@ class ALUMNO_DELETE_View
 
 
         </form>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
         </body>
         </html>
         <?php
