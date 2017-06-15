@@ -35,7 +35,7 @@ class ASIGNATURA_UPDATE_View
         <head>
             <title>Update Asignatura</title>
             <link rel="stylesheet" type="text/css" href="View/css/add.css">
-            <meta>
+            <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
@@ -50,23 +50,24 @@ class ASIGNATURA_UPDATE_View
             </div>
             <div class="content">
                 <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Actualizar Asignatura</h1>
         <form
             action="?controller=ASIGNATURA&action=UPDATE&id=<?php echo $this->values_list["id"];  ?>" method="post">
             <label for="id">ID</label><br>
-            <input id="id" type="number" step="1" name="id" value="<?php echo $this->values_list["id"];  ?>"><br>
+            <input type="number" step="1" name="id" value="<?php echo $this->values_list["id"];  ?>"><br>
 
             <label for="nombre">Nombre</label><br>
-            <input id="nombre" type="text" name="nombre" value="<?php echo $this->values_list["nombre"];  ?>"><br>
+            <input type="text" name="nombre" value="<?php echo $this->values_list["nombre"];  ?>"><br>
 
             <label for="num_creditos">Num_creditos</label><br>
-            <input id="num_creditos" type="number" step="1" name="num_creditos" value="<?php echo $this->values_list["num_creditos"]; ?>"><br>
+            <input type="number" step="1" name="num_creditos" value="<?php echo $this->values_list["num_creditos"]; ?>"><br>
 
             <label for="departamento">Departamento</label><br>
-            <input id="departamento" type="text" name="departamento" value="<?php echo $this->values_list["departamento"]; ?>"><br>
+            <input type="text" name="departamento" value="<?php echo $this->values_list["departamento"]; ?>"><br>
 
             <label for="categoria">Categoria</label><br>
-            <input id="categoria" type="text" name="categoria" value="<?php echo $this->values_list["categoria"]; ?>"><br>
+            <input type="text" name="categoria" value="<?php echo $this->values_list["categoria"]; ?>"><br>
 
             <input type="submit" value="Actualizar">
 

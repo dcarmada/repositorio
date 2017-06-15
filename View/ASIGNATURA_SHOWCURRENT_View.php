@@ -32,7 +32,7 @@ class ASIGNATURA_SHOWCURRENT_View
         <head>
             <title> Asignatura</title>
             <link rel="stylesheet" type="text/css" href="View/css/showcurrent.css">
-            <meta>
+            <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
@@ -47,6 +47,7 @@ class ASIGNATURA_SHOWCURRENT_View
             </div>
             <div class="content">
                 <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Asignatura</h1>
         <?php
         foreach ($this->values_list as $clave => $i) {

@@ -54,13 +54,8 @@ input{
     position: fixed;
     left:0;
     top: 0;
-<<<<<<< HEAD
     max-height: 10%;
     min-height: 10%;
-=======
-    /*max-height: 10%;*/
-   /* min-height: 10%;*/
->>>>>>> eb46ba2c2536532799aecb6b58379e0fba187aa2
     height: 70px;
     width: 100%;
 }
@@ -99,11 +94,7 @@ input{
     left:0;
     bottom: 0;
     width: 100%;
-<<<<<<< HEAD
     min-height: 10%;
-=======
-   /* min-height: 10%;*/
->>>>>>> eb46ba2c2536532799aecb6b58379e0fba187aa2
     height: 70px;
 }
 
@@ -181,4 +172,8 @@ ul {
     border-radius: 10px;
     color: black;
     font-size: 150%;
+}
+img{
+    margin-top: 10px;
+    margin-left: 10px;
 }

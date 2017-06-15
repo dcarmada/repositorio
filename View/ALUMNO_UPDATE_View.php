@@ -35,7 +35,7 @@ class ALUMNO_UPDATE_View
         <head>
             <title>Update Alumno</title>
             <link rel="stylesheet" type="text/css" href="View/css/update.css">
-            <meta>
+            <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
@@ -50,28 +50,29 @@ class ALUMNO_UPDATE_View
             </div>
             <div class="content">
                 <a class="enlace" href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ALUMNO&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Actualizar Alumno</h1>
         <form
             action="?controller=ALUMNO&action=UPDATE&id=<?php echo $this->values_list["dni"];  ?>" method="post">
             <label for="dni">DNI</label><br>
-            <input id="dni" type="text" name="dni" value="<?php echo $this->values_list["dni"];  ?>"><br>
+            <input type="text" name="dni" value="<?php echo $this->values_list["dni"];  ?>"><br>
 
             <label for="nombre">Nombre</label><br>
-            <input id="nombre" type="text" name="nombre" value="<?php echo $this->values_list["nombre"];  ?>"><br>
+            <input type="text" name="nombre" value="<?php echo $this->values_list["nombre"];  ?>"><br>
 
             <label for="apellidos">Apellidos</label><br>
-            <input id="apellidos" type="text" name="apellidos" value="<?php echo $this->values_list["apellidos"]; ?>"><br>
+            <input type="text" name="apellidos" value="<?php echo $this->values_list["apellidos"]; ?>"><br>
 
             <label for="fecha_nacimiento">Fecha_Nacimiento</label><br>
-            <input id="fecha_nacimiento" type="text" name="fecha_nacimiento" value="<?php echo $this->values_list["fecha_nacimiento"]; ?>"><br>
+            <input type="text" name="fecha_nacimiento" value="<?php echo $this->values_list["fecha_nacimiento"]; ?>"><br>
 
             <label for="telefono">Telefono</label><br>
-            <input id="telefono" type="number" min="0" name="telefono" value="<?php echo $this->values_list["telefono"]; ?>"><br>
+            <input type="number" min="0" name="telefono" value="<?php echo $this->values_list["telefono"]; ?>"><br>
 
             <label for="direccion">Direccion</label><br>
-            <input id="direccion" type="text" name="direccion" value="<?php echo $this->values_list["direccion"]; ?>"><br>
+            <input type="text" name="direccion" value="<?php echo $this->values_list["direccion"]; ?>"><br>
 
-            <input type="checkbox" id="es_becario" name="es_becario" value="<?php echo $this->values_list["es_becario"]; ?>"><br>
+            <input type="checkbox" name="es_becario" value="<?php echo $this->values_list["es_becario"]; ?>"><br>
             <label for="es_becario">Es_Becario</label><br>
 
             <input type="submit" value="Actualizar">

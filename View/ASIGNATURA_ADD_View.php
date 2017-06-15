@@ -29,23 +29,24 @@ class ASIGNATURA_ADD_View
             </div>
             <div class="content">
                 <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1 class="títuloH1">Añadir Asignatura</h1>
         <form
             action="?controller=ASIGNATURA&action=ADD" method="post">
             <label for="id">ID</label><br>
-            <input id="id" type="number" step="1" name="id"><br>
+            <input type="number" step="1" name="id"><br>
 
             <label for="nombre">Nombre</label><br>
-            <input id="nombre" type="text" name="nombre"><br>
+            <input  type="text" name="nombre"><br>
 
             <label for="num_creditos">Num_creditos</label><br>
-            <input id="num_creditos" type="number" step="1" name="num_creditos"><br>
+            <input type="number" step="1" name="num_creditos"><br>
 
             <label for="departamento">Departamento</label><br>
-            <input id="departamento" type="text" name="departamento"><br>
+            <input type="text" name="departamento"><br>
 
             <label for="categoria">Categoria</label><br>
-            <input id="categoria" type="text" name="categoria"><br>
+            <input type="text" name="categoria"><br>
 
             <input type="submit" value="Añadir">
 

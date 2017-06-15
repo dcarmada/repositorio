@@ -35,7 +35,7 @@ class ASIGNATURA_DELETE_View
         <head>
             <title>Delete Asignatura</title>
             <link rel="stylesheet" type="text/css" href="View/css/delete.css">
-            <meta>
+            <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
@@ -50,6 +50,7 @@ class ASIGNATURA_DELETE_View
                     </div>
                     <div class="content">
                         <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                        <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Borrar Asignatura</h1>
         <form
             action="?controller=ASIGNATURA&action=DELETE&id=<?php echo $this->values_list["id"];  ?>" method="post">

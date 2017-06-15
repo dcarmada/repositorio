@@ -35,7 +35,7 @@ class ALUMNO_DELETE_View
         <head>
             <title>Delete Alumno</title>
             <link rel="stylesheet" type="text/css" href="View/css/delete.css">
-            <meta>
+            <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
@@ -50,6 +50,7 @@ class ALUMNO_DELETE_View
             </div>
             <div class="content">
                 <a class="enlace" href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ALUMNO&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Borrar Alumno</h1>
         <form
             action="?controller=ALUMNO&action=DELETE&id=<?php echo $this->values_list["dni"];  ?>" method="post">
