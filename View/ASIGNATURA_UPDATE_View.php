@@ -40,23 +40,16 @@ class ASIGNATURA_UPDATE_View
         <body>
         <div class="container">
             <div class="header">
+                <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post'><img src='View/icons/Button-Close-icon.png'></a>
             </div>
             <div class="sidebar">
                 <ul>
-                    <li><a class="enlace" href="?controller=ALUMNO&action=ADD" method="post">Add Alumno</a></li>
-                    <li><a class="enlace" href="?controller=ALUMNO&action=DELETE&id=dni" method="post">Delete Alumno</a></li>
-                    <li><a class="enlace" href="?controller=ALUMNO&action=SHOWCURRENT&id=dni" method="post">ShowCurrent Alumno</a></li>
-                    <li><a class="enlace" href="?controller=ALUMNO&action=SHOWALL" method="post">ShowAll Alumno</a></li>
-                    <li><a class="enlace" href="?controller=ALUMNO&action=UPDATE&id=dni" method="post">Update Alumno</a></li>
-                    <li><a class="enlace" href="?controller=ASIGNATURA&action=ADD" method="post">Add Asignatura</a></li>
-                    <li><a class="enlace" href="?controller=ASIGNATURA&action=DELETE&id=id" method="post">Delete Asignatura</a></li>
-                    <li><a class="enlace" href="?controller=ASIGNATURA&action=SHOWALL" method="post">SHOWALL Asignatura</a></li>
-                    <li><a class="enlace" href="?controller=ASIGNATURA&action=SHOWCURRENT&id=id" method="post">SHOWCURRENT Asignatura</a></li>
-                    <li><a class="enlace" href="?controller=ASIGNATURA&action=UPDATE&id=id" method="post">Update Asignatura</a></li>
+                    <li><a class="enlace" href="?controller=ALUMNO&action=SHOWALL" method="post">Gestión de alumnos</a></li>
+                    <li><a class="enlace" href="?controller=ASIGNATURA&action=SHOWALL" method="post">Gestión de asignaturas</a></li>
                 </ul>
             </div>
             <div class="content">
-                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView">Volver</a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
         <h1>Actualizar Asignatura</h1>
         <form
             action="?controller=ASIGNATURA&action=UPDATE&id=<?php echo $this->values_list["id"];  ?>" method="post">
@@ -83,6 +76,22 @@ class ASIGNATURA_UPDATE_View
         </form>
             </div>
             <div class="footer">
+                <h2>Página generada el día:</h2>
+                <script>
+                    var mydate=new Date();
+                    var year=mydate.getYear();
+                    if (year < 1000)
+                        year+=1900;
+                    var day=mydate.getDay();
+                    var month=mydate.getMonth()+1;
+                    if (month<10)
+                        month="0"+month;
+                    var daym=mydate.getDate();
+                    if (daym<10)
+                        daym="0"+daym;
+                    document.write("<big><font color='000000' face='Arial'><b>"+daym+"/"+month+"/"+year+"</b></font></big>")
+
+                </script>
             </div>
         </div>
         </body>
