@@ -5,6 +5,7 @@ include_once "View/SHOWALL_View.php";
 include_once "View/ALUMNO_SHOWALL_View.php";
 include_once "View/ALUMNO_UPDATE_View.php";
 include_once "View/ALUMNO_DELETE_View.php";
+include_once "View/ALUMNO_SEARCH_View.php";
 
 function showAll()
 {
@@ -12,7 +13,7 @@ function showAll()
     $values_list = $alumno_model->getAll();
 
 
-    $field_list = ["nombre", "apellidos", "dni"];
+    $field_list = ["dni", "nombre", "apellidos", "fecha_nacimiento", "telefono", "direccion"];
     $view = new ALUMNO_SHOWALL_View($field_list, $values_list);
 //$alumno_model->addAlumno("85142028C", utf8_decode("Néstor"), utf8_decode("Brandín Cachafeiro"), new DateTime("15-4-1995"), 988745622, "Calle nadie", true);
 //$alumno_model->addAlumno("75142028H", utf8_decode("Adrián"), "Araujo Gregorio", new DateTime("15-4-1995"), 988745623, "Calle u", true);
@@ -83,5 +84,32 @@ function delete($id)
         $alumno = new ALUMNO_Model();
         $alumno->deleteAlumno($id);
         echo "Borrado";
+    }
+}
+
+function search()
+{
+    if (sizeof($_POST) == 0) {
+        include_once "View/ALUMNO_SEARCH_View.php";
+        $view = new ALUMNO_SEARCH_View();
+        $view->render();
+    } else {
+        $alumno = new ALUMNO_Model();
+        $date = null;
+        if (isset($_POST['fecha_nacimiento']) && !is_null($_POST['fecha_nacimiento']) && !empty($_POST['fecha_nacimiento']))
+            $date = new DateTime($_POST['fecha_nacimiento']);
+        $values_list= $alumno->searchAlumno($_POST['dni'], $_POST['nombre'], $_POST['apellidos'],
+            $date, $_POST['telefono'],
+            $_POST['direccion'], isset($_POST['es_becario']));
+        $alumno_model = new ALUMNO_Model();
+        //$values_list = $alumno_model->getAll();
+
+
+        $field_list = ["dni", "nombre", "apellidos", "fecha_nacimiento", "telefono", "direccion"];
+        $view = new ALUMNO_SHOWALL_View($field_list, $values_list);
+//$alumno_model->addAlumno("85142028C", utf8_decode("Néstor"), utf8_decode("Brandín Cachafeiro"), new DateTime("15-4-1995"), 988745622, "Calle nadie", true);
+//$alumno_model->addAlumno("75142028H", utf8_decode("Adrián"), "Araujo Gregorio", new DateTime("15-4-1995"), 988745623, "Calle u", true);
+        $view->render();
+
     }
 }

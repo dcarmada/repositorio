@@ -1,7 +1,7 @@
 <?php
 
 
-class ASIGNATURA_SHOWALL_View extends SHOWALL_View
+class ASIGNATURA_SHOWALL_View
 {
 
     /**

@@ -39,6 +39,13 @@ switch ($action) {
         }
         delete($id);
         break;
+    case "SEARCH":
+        $id=null;
+        if(isset($_GET["$id"])){
+            $id=$_GET["$id"];
+        }
+        search();
+        break;
     default:
         echo "FALTA ACCIÓN";
 }

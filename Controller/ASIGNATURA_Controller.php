@@ -5,6 +5,7 @@ include_once "View/SHOWALL_View.php";
 include_once "View/ASIGNATURA_SHOWALL_View.php";
 include_once "View/ASIGNATURA_UPDATE_View.php";
 include_once "View/ASIGNATURA_DELETE_View.php";
+include_once "View/ASIGNATURA_SEARCH_View.php";
 
 function showAll()
 {
@@ -83,5 +84,25 @@ function delete($id)
         $asignatura = new ASIGNATURA_Model();
         $asignatura->deleteAsignatura($id);
         echo "Borrada";
+    }
+}
+function search()
+{
+    if (sizeof($_POST) == 0) {
+        include_once "View/ASIGNATURA_SEARCH_View.php";
+        $view = new ASIGNATURA_SEARCH_View();
+        $view->render();
+    } else {
+        $asignatura = new ASIGNATURA_Model();
+        $values_list= $asignatura->searchAsignatura($_POST['id'], $_POST['nombre'], $_POST['num_creditos'], $_POST['departamento'],
+            $_POST['categoria']);
+        $asignatura_model = new ASIGNATURA_Model();
+        //$values_list = $asignatura_model->getAll();
+
+
+        $field_list = ["id", "nombre", "num_creditos", "departamento", "categoria"];
+        $view = new ASIGNATURA_SHOWALL_View($field_list, $values_list);
+        $view->render();
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class ALUMNO_SHOWALL_View extends SHOWALL_View
+class ALUMNO_SHOWALL_View
 {
     /**
      * ALUMNO_SHOWALL_View constructor.
