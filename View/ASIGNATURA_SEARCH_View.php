@@ -12,7 +12,7 @@ class ASIGNATURA_SEARCH_View
         ?>
         <html>
         <head>
-            <title>Add Asignatura</title>
+            <title>Search Asignatura</title>
             <link rel="stylesheet" type="text/css" href="View/css/add.css">
             <meta charset="UTF-8">
         </head>
@@ -28,9 +28,9 @@ class ASIGNATURA_SEARCH_View
                 </ul>
             </div>
             <div class="content">
-                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=SEARCH"><img src='View/icons/search-icon (1).png'> </a>
                 <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
-                <h1 class="títuloH1">Añadir Asignatura</h1>
+                <h1 class="títuloH1">Buscar Asignatura</h1>
                 <form
                     action="?controller=ASIGNATURA&action=SEARCH" method="post">
                     <label for="id">ID</label><br>
@@ -48,12 +48,13 @@ class ASIGNATURA_SEARCH_View
                     <label for="categoria">Categoria</label><br>
                     <input type="text" name="categoria"><br>
 
-                    <input type="submit" value="Añadir">
+                    <input type="submit" value="Buscar">
 
 
 
 
                 </form>
+                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
             </div>
             <div class="footer">
                 <h2>Página generada el día:</h2>

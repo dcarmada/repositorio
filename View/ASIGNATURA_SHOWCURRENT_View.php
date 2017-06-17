@@ -46,7 +46,7 @@ class ASIGNATURA_SHOWCURRENT_View
                 </ul>
             </div>
             <div class="content">
-                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ASIGNATURA&action=SEARCH"><img src='View/icons/search-icon (1).png'> </a>
                 <a class="enlace" href="?controller=ASIGNATURA&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>Asignatura</h1>
         <?php
@@ -55,6 +55,7 @@ class ASIGNATURA_SHOWCURRENT_View
         }
 
         ?>
+                <a class="enlace" href="?controller=ASIGNATURA&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
             </div>
             <div class="footer">
                 <h2>Página generada el día:</h2>

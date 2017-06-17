@@ -78,7 +78,7 @@ categoria=:categoria WHERE id=:id";
     public function searchAsignatura($id, $nombre, $num_creditos, $departamento, $categoria){
         $sql = "SELECT * FROM asignatura WHERE";
         if (!is_null($id)&&!empty($id)) {
-            $sql .= "id like :id and ";
+            $sql .= "id like= :id and ";
             $id = "%" . $id . "%";
         }
         if (!is_null($nombre)&&!empty($nombre)) {

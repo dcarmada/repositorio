@@ -12,7 +12,7 @@ class ALUMNO_SEARCH_View
         ?>
         <html lang="en">
         <head>
-            <title>Add Alumno</title>
+            <title>Search Alumno</title>
             <link rel="stylesheet" type="text/css" href="View/css/add.css">
             <meta charset="UTF-8">
         </head>
@@ -28,9 +28,9 @@ class ALUMNO_SEARCH_View
                 </ul>
             </div>
             <div class="content">
-                <a class="enlace" href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                <a class="enlace" href="?controller=ALUMNO&action=SEARCH"><img src='View/icons/search-icon (1).png'> </a>
                 <a class="enlace" href="?controller=ALUMNO&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
-                <h1>Añadir Alumno</h1>
+                <h1>Buscar Alumno</h1>
                 <form
                     action="?controller=ALUMNO&action=SEARCH" method="post">
                     <label for="dni">DNI</label><br>
@@ -54,11 +54,12 @@ class ALUMNO_SEARCH_View
                     <input type="checkbox" id="es_becario" name="es_becario"><br>
                     <label for="es_becario">Es_Becario</label><br>
 
-                    <input type="submit" value="Añadir">
+                    <input type="submit" value="Buscar">
 
 
 
                 </form>
+                <a class="enlace" href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
             </div>
             <div class="footer">
                 <h2>Página generada el día:</h2>
