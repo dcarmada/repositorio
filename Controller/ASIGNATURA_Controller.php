@@ -6,6 +6,51 @@ include_once "View/ASIGNATURA_SHOWALL_View.php";
 include_once "View/ASIGNATURA_UPDATE_View.php";
 include_once "View/ASIGNATURA_DELETE_View.php";
 include_once "View/ASIGNATURA_SEARCH_View.php";
+$action = "showAll";
+if (isset($_GET["action"])) {
+    $action = strtoupper($_GET["action"]);
+    if (!function_exists($action)) {
+        $action = "SHOWALL";
+    }
+}
+switch ($action) {
+    case "SHOWALL":
+        showAll();
+        break;
+    case "SHOWCURRENT":
+        $id = null;
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+        }
+        showCurrent($id);
+        break;
+    case "ADD":
+        add();
+        break;
+    case "UPDATE":
+        $id = null;
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+        }
+        update($id);
+        break;
+    case "DELETE":
+        $id=null;
+        if(isset($_GET["id"])){
+            $id=$_GET["id"];
+        }
+        delete($id);
+        break;
+    case "SEARCH":
+        $id=null;
+        if(isset($_GET["$id"])){
+            $id=$_GET["$id"];
+        }
+        search();
+        break;
+    default:
+        echo "FALTA ACCIÓN";
+}
 
 function showAll()
 {
