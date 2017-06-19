@@ -1,6 +1,6 @@
 <?php
 
-class Index {
+class index_View {
 
     function __construct(){
         $this->render();
