@@ -21,25 +21,25 @@ class ASIGNATURA_SHOWALL_View
         <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
-            <link rel='stylesheet' href='View/css/showall.css'>
+            <link rel='stylesheet' href='../View/css/showall.css'>
         </head>
         <body>
         <div class=\"container\">
              <div class=\"header\">
-             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post' ><img src='View/icons/Button-Close-icon.png'align='center'></a>
+             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post' ><img src='../View/icons/Button-Close-icon.png'align='center'></a>
              </div>
         <div class=\"sidebar\">
              <ul>
-                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
+                 <li><a class=\"enlace\" href=\"../Controller/ALUMNO_Controller.php?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
                  <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
              </ul>
         </div>
         <div class=\"content\">
-            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SEARCH\"><img src='View/icons/search-icon (1).png'> </a>
-            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SEARCH\"><img src='../View/icons/search-icon (1).png'> </a>
+            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
         <h1>{{header}}</h1>
        {{data}}
-       <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+       <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
        </div>
         <div class=\"footer\">
         <h2>Página generada el día:</h2>
@@ -133,9 +133,9 @@ class ASIGNATURA_SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
-            $table.='<td><a class="enlace" href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="View/icons/iconEdit.png"/> </a> 
-                     <a class="enlace" href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="View/icons/Eraser-icon.png"/></a>
-                     <a class="enlace" href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="View/icons/Search-icon.png"/></a></td>';
+            $table.='<td><a class="enlace" href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="../View/icons/iconEdit.png"/> </a> 
+                     <a class="enlace" href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="../View/icons/Eraser-icon.png"/></a>
+                     <a class="enlace" href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="../View/icons/Search-icon.png"/></a></td>';
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";

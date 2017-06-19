@@ -10,12 +10,12 @@ const HTML_SKELETON = "
         <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
-            <link rel='stylesheet' href='View/css/showall.css'>
+            <link rel='stylesheet' href='../View/css/showall.css'>
         </head>
         <body>
         <div class=\"container\">
              <div class=\"header\">
-             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post'><img src='View/icons/Button-Close-icon.png'></a>
+             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
              </div>
         <div class=\"sidebar\">
              <ul>
@@ -24,8 +24,8 @@ const HTML_SKELETON = "
              </ul>
         </div>
         <div class=\"content\">
-            <a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
-            <a class=\"enlace\" href=\"?controller=ALUMNO&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+            <a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
+            <a class=\"enlace\" href=\"?controller=ALUMNO&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
         <h1>{{header}}</h1>
        {{data}}
        </div>
