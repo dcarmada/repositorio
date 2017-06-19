@@ -23,12 +23,12 @@ class index_View
         <body>
         <div class=\"container\">
              <div class=\"header\">
-             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' methods='post'><img src='../View/icons/Button-Close-icon.png'></a>
+             <a href='../Controller/desconectar.php' methods='post'><img src='../View/icons/Button-Close-icon.png'></a>
              </div>
         <div class=\"sidebar\">
              <ul>
-                 <li><a class=\"enlace\" href=\"../Controller/ALUMNO_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de alumnos</a></li>
-                 <li><a class=\"enlace\" href=\"../Controller/ASIGNATURA_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de asignaturas</a></li>
+                 <li><a href=\"../Controller/ALUMNO_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de alumnos</a></li>
+                 <li><a href=\"../Controller/ASIGNATURA_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de asignaturas</a></li>
              </ul>
         </div>
         <div class=\"content\">

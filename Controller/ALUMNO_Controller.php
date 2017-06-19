@@ -81,7 +81,7 @@ function showCurrent($id)
         $view->render();
     } else {
         echo "Falta id";
-        echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -98,7 +98,7 @@ function add()
             new DateTime($_POST['fecha_nacimiento']), $_POST['telefono'],
             $_POST['direccion'], isset($_POST['es_becario']));
         echo "Insertado";
-        echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -112,7 +112,7 @@ function update($id)
             $view->render();
         } else {
             echo "Falta id";
-            echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+            echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     } else {
         $alumno = new ALUMNO_Model();
@@ -120,7 +120,7 @@ function update($id)
             new DateTime($_POST['fecha_nacimiento']), $_POST['telefono'],
             $_POST['direccion'], isset($_POST['es_becario']));
         echo "Actualizado";
-        echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -134,13 +134,13 @@ function delete($id)
             $view->render();
         } else {
             echo "Falta id";
-            echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+            echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     } else {
         $alumno = new ALUMNO_Model();
         $alumno->deleteAlumno($id);
         echo "Borrado";
-        echo "<a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 

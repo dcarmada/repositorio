@@ -15,17 +15,17 @@ const HTML_SKELETON = "
         <body>
         <div class=\"container\">
              <div class=\"header\">
-             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
+             <a href='../Controller/desconectar.php' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
              </div>
         <div class=\"sidebar\">
              <ul>
-                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
-                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
+                 <li><a href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
+                 <li><a href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
              </ul>
         </div>
         <div class=\"content\">
-            <a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
-            <a class=\"enlace\" href=\"?controller=ALUMNO&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
+            <a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
+            <a href=\"?controller=ALUMNO&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
         <h1>{{header}}</h1>
        {{data}}
        </div>

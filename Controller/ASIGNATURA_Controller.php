@@ -73,7 +73,7 @@ function showCurrent($id)
         $view->render();
     } else {
         echo "Falta id";
-        echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -90,7 +90,7 @@ function add()
             $_POST['departamento'],
             $_POST['categoria']);
         echo "Insertada";
-        echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 function update($id){
@@ -102,7 +102,7 @@ function update($id){
             $view->render();
         } else {
             echo "Falta id";
-            echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+            echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     }else{
         try {
@@ -111,10 +111,10 @@ function update($id){
                 $_POST['departamento'],
                 $_POST['categoria']);
             echo "Actualizada";
-            echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+            echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }catch (Exception $e){
             echo "Error en la base de datos";
-            echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+            echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     }
 
@@ -134,7 +134,7 @@ function delete($id)
         $asignatura = new ASIGNATURA_Model();
         $asignatura->deleteAsignatura($id);
         echo "Borrada";
-        echo "<a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+        echo "<a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 function search()
