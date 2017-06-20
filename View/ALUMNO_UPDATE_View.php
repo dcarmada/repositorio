@@ -34,14 +34,19 @@ class ALUMNO_UPDATE_View
         <html>
         <head>
             <title>Update Alumno</title>
+<<<<<<< HEAD
             <link rel="stylesheet" type="text/css" href="View/css/container.css">
             <link rel="stylesheet" type="text/css" href="View/css/header.css">
             <link rel="stylesheet" type="text/css" href="View/css/sidebar.css">
             <link rel="stylesheet" type="text/css" href="View/css/footer.css">
+=======
+            <link rel="stylesheet" type="text/css" href="../View/css/update.css">
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
             <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
+<<<<<<< HEAD
 
             <?php
             include "View/header.php";
@@ -53,6 +58,20 @@ class ALUMNO_UPDATE_View
             <div class="content">
                 <a href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
                 <a href="?controller=ALUMNO&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
+=======
+            <div class="header">
+                <a href='../Controller/desconectar.php' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="?controller=ALUMNO&action=SHOWALL" method="post">Gestión de alumnos</a></li>
+                    <li><a href="../Controller/ASIGNATURA_Controller.php?controller=ASIGNATURA&action=SHOWALL" method="post">Gestión de asignaturas</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <a href="?controller=ALUMNO&action=SEARCH"><img src='../View/icons/search-icon (1).png'> </a>
+                <a href="?controller=ALUMNO&action=ADD"><img src='../View/icons/Button-Add-icon.png'> </a>
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
         <h1>Actualizar Alumno</h1>
         <form
             action="?controller=ALUMNO&action=UPDATE&id=<?php echo $this->values_list["dni"];  ?>" method="post">
@@ -81,6 +100,7 @@ class ALUMNO_UPDATE_View
 
 
         </form>
+                <a href="?controller=ALUMNO&action=SHOWALLView"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
             </div>
             <?php
             include "View/footer.php";

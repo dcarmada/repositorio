@@ -1,44 +1,22 @@
 <?php
-$controller = "ALUMNO";
-if (isset($_GET["controller"])) {
-    $controller = $_GET["controller"];
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location:Controller/login_Controller.php');
+} else {
+    header('Location:Controller/index_Controller.php');
 }
-include_once "Controller/" . $controller . "_Controller.php";
-$action = "showAll";
-if (isset($_GET["action"])) {
-    $action = strtoupper($_GET["action"]);
-    if (!function_exists($action)) {
-        $action = "SHOWALL";
-    }
+
+//    header('Location:./Controller/index_Controller.php');
+
+/*session_start();
+include './Functions/Authentication.php';
+
+if (!IsAuthenticated()){
+    header('Location:./Controller/Login_Controller.php');
 }
-switch ($action) {
-    case "SHOWALL":
-        showAll();
-        break;
-    case "SHOWCURRENT":
-        $id = null;
-        if (isset($_GET["id"])) {
-            $id = $_GET["id"];
-        }
-        showCurrent($id);
-        break;
-    case "ADD":
-        add();
-        break;
-    case "UPDATE":
-        $id = null;
-        if (isset($_GET["id"])) {
-            $id = $_GET["id"];
-        }
-        update($id);
-        break;
-    case "DELETE":
-        $id=null;
-        if(isset($_GET["id"])){
-            $id=$_GET["id"];
-        }
-        delete($id);
-        break;
-    default:
-        echo "FALTA ACCIÓN";
-}
+else{
+    header('Location:./Controller/Index_Controller.php');
+}*/
+

@@ -1,10 +1,62 @@
 <?php
-include_once "PDO_Connection.php";
-include_once "Model/ALUMNO_Model.php";
-include_once "View/SHOWALL_View.php";
-include_once "View/ALUMNO_SHOWALL_View.php";
-include_once "View/ALUMNO_UPDATE_View.php";
-include_once "View/ALUMNO_DELETE_View.php";
+include_once "../PDO_Connection.php";
+include_once "../Model/ALUMNO_Model.php";
+include_once "../View/SHOWALL_View.php";
+include_once "../View/ALUMNO_SHOWALL_View.php";
+include_once "../View/ALUMNO_UPDATE_View.php";
+include_once "../View/ALUMNO_DELETE_View.php";
+include_once "../View/ALUMNO_SEARCH_View.php";
+//$controller = "ALUMNO";
+/*if (isset($_GET["controller"])) {
+    $controller = $_GET["controller"];
+}*/
+//include_once "././Controller/" . $controller . "_Controller.php";
+$action = "showAll";
+//include_once "&action=" . $action;
+if (isset($_GET["action"])) {
+    $action = strtoupper($_GET["action"]);
+    if (!function_exists($action)) {
+        $action = "SHOWALL";
+    }
+}
+switch ($action) {
+    case "SHOWALL":
+        showAll();
+        break;
+    case "SHOWCURRENT":
+        $id = null;
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+        }
+        showCurrent($id);
+        break;
+    case "ADD":
+        add();
+        break;
+    case "UPDATE":
+        $id = null;
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+        }
+        update($id);
+        break;
+    case "DELETE":
+        $id=null;
+        if(isset($_GET["id"])){
+            $id=$_GET["id"];
+        }
+        delete($id);
+        break;
+    case "SEARCH":
+        $id=null;
+        if(isset($_GET["$id"])){
+            $id=$_GET["$id"];
+        }
+        search();
+        break;
+    default:
+        echo "FALTA ACCIÓN";
+}
 
 function showAll()
 {
@@ -12,7 +64,7 @@ function showAll()
     $values_list = $alumno_model->getAll();
 
 
-    $field_list = ["nombre", "apellidos", "dni"];
+    $field_list = ["dni", "nombre", "apellidos", "fecha_nacimiento", "telefono", "direccion"];
     $view = new ALUMNO_SHOWALL_View($field_list, $values_list);
 //$alumno_model->addAlumno("85142028C", utf8_decode("Néstor"), utf8_decode("Brandín Cachafeiro"), new DateTime("15-4-1995"), 988745622, "Calle nadie", true);
 //$alumno_model->addAlumno("75142028H", utf8_decode("Adrián"), "Araujo Gregorio", new DateTime("15-4-1995"), 988745623, "Calle u", true);
@@ -21,7 +73,7 @@ function showAll()
 
 function showCurrent($id)
 {
-    include_once "View/ALUMNO_SHOWCURRENT_View.php";
+    include_once "../View/ALUMNO_SHOWCURRENT_View.php";
     if (isset($id) && !is_null($id) && $id !== "") {
         $alumno_model = new ALUMNO_Model();
         $values_list = $alumno_model->getByDNI($id);
@@ -29,6 +81,7 @@ function showCurrent($id)
         $view->render();
     } else {
         echo "Falta id";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -36,7 +89,7 @@ function add()
 {
 //echo sizeof($_POST); esto no hace falta
     if (sizeof($_POST) == 0) {
-        include_once "View/ALUMNO_ADD_View.php";
+        include_once "../View/ALUMNO_ADD_View.php";
         $view = new ALUMNO_ADD_View();
         $view->render();
     } else {
@@ -45,6 +98,7 @@ function add()
             new DateTime($_POST['fecha_nacimiento']), $_POST['telefono'],
             $_POST['direccion'], isset($_POST['es_becario']));
         echo "Insertado";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -58,6 +112,7 @@ function update($id)
             $view->render();
         } else {
             echo "Falta id";
+            echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     } else {
         $alumno = new ALUMNO_Model();
@@ -65,6 +120,7 @@ function update($id)
             new DateTime($_POST['fecha_nacimiento']), $_POST['telefono'],
             $_POST['direccion'], isset($_POST['es_becario']));
         echo "Actualizado";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
     }
 }
 
@@ -78,10 +134,39 @@ function delete($id)
             $view->render();
         } else {
             echo "Falta id";
+            echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
         }
     } else {
         $alumno = new ALUMNO_Model();
         $alumno->deleteAlumno($id);
         echo "Borrado";
+        echo "<a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'>";
+    }
+}
+
+function search()
+{
+    if (sizeof($_POST) == 0) {
+        include_once "../View/ALUMNO_SEARCH_View.php";
+        $view = new ALUMNO_SEARCH_View();
+        $view->render();
+    } else {
+        $alumno = new ALUMNO_Model();
+        $date = null;
+        if (isset($_POST['fecha_nacimiento']) && !is_null($_POST['fecha_nacimiento']) && !empty($_POST['fecha_nacimiento']))
+            $date = new DateTime($_POST['fecha_nacimiento']);
+        $values_list= $alumno->searchAlumno($_POST['dni'], $_POST['nombre'], $_POST['apellidos'],
+            $date, $_POST['telefono'],
+            $_POST['direccion'], isset($_POST['es_becario']));
+        $alumno_model = new ALUMNO_Model();
+        //$values_list = $alumno_model->getAll();
+
+
+        $field_list = ["dni", "nombre", "apellidos", "fecha_nacimiento", "telefono", "direccion"];
+        $view = new ALUMNO_SHOWALL_View($field_list, $values_list);
+//$alumno_model->addAlumno("85142028C", utf8_decode("Néstor"), utf8_decode("Brandín Cachafeiro"), new DateTime("15-4-1995"), 988745622, "Calle nadie", true);
+//$alumno_model->addAlumno("75142028H", utf8_decode("Adrián"), "Araujo Gregorio", new DateTime("15-4-1995"), 988745623, "Calle u", true);
+        $view->render();
+
     }
 }

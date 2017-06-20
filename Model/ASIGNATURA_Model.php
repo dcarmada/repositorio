@@ -75,4 +75,52 @@ categoria=:categoria WHERE id=:id";
             throw new Exception(("ERROR DataBase"));
         }
     }
+    public function searchAsignatura($id, $nombre, $num_creditos, $departamento, $categoria){
+        $sql = "SELECT * FROM asignatura WHERE";
+        if (!is_null($id)&&!empty($id)) {
+            $sql .= "id like= :id and ";
+            $id = "%" . $id . "%";
+        }
+        if (!is_null($nombre)&&!empty($nombre)) {
+            $sql .= " nombre like :nombre and ";
+            $nombre = "%" . $nombre . "%";
+        }
+        if (!is_null($num_creditos)&&!empty($num_creditos)) {
+            $sql .= " num_creditos like :num_creditos and ";
+            $num_creditos = "%" . $num_creditos . "%";
+        }
+        if (!is_null($departamento)&&!empty($departamento)) {
+            $sql .= " departamento like :departamento and ";
+            $departamento = "%" . $departamento . "%";
+        }
+        if (!is_null($categoria)&&!empty($categoria)) {
+            $sql .= " categoria like :categoria and ";
+            $categoria = "%" . $categoria . "%";
+        }
+        $sql.=" 1=1";
+        $stmt = $this->db->prepare($sql);
+        if (!is_null($id)&&!empty($id)) {
+            $stmt->bindParam(":id", $id);
+        }
+        if (!is_null($nombre)&&!empty($nombre)) {
+            $stmt->bindParam(":nombre", $nombre);
+        }
+        if (!is_null($num_creditos)&&!empty($num_creditos)) {
+            $stmt->bindParam(":num_creditos", $num_creditos);
+        }
+        if (!is_null($departamento)&&!empty($departamento)) {
+            $stmt->bindParam(":departamento", $departamento);
+        }
+        if (!is_null($categoria)&&!empty($categoria)) {
+            $stmt->bindParam(":categoria", $categoria);
+        }
+        $sql2="SELECT * FROM ASIGNATURA WHERE id=:$id and nombre=$nombre and num_creditos=$num_creditos and departamento=$departamento 
+and categoria=$categoria";
+        error_log($sql2);
+        if (!$stmt->execute()) {
+//           error_log("ERROR");
+            throw new Exception("ERROR DataBase");
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

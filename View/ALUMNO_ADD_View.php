@@ -18,7 +18,6 @@ class ALUMNO_ADD_View
             <link rel="stylesheet" type="text/css" href="View/css/header.css">
             <link rel="stylesheet" type="text/css" href="View/css/sidebar.css">
             <link rel="stylesheet" type="text/css" href="View/css/footer.css">
-
             <meta charset="UTF-8">
         </head>
         <body>

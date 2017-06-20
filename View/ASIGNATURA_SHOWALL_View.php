@@ -18,12 +18,35 @@ class ASIGNATURA_SHOWALL_View
     }
     const HTML_SKELETON = "
         <html>
+<<<<<<< HEAD
         
         <div class=\"content\">
             <a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
             <a href=\"?controller=ASIGNATURA&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+=======
+        <head class='encabezado'>
+            <meta charset=\"UTF-8\">
+            <title>{{tittle}}</title>
+            <link rel='stylesheet' href='../View/css/showall.css'>
+        </head>
+        <body>
+        <div class=\"container\">
+             <div class=\"header\">
+             <a href='../Controller/desconectar.php' method='post' ><img src='../View/icons/Button-Close-icon.png'align='center'></a>
+             </div>
+        <div class=\"sidebar\">
+             <ul>
+                 <li><a href=\"../Controller/ALUMNO_Controller.php?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
+                 <li><a href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
+             </ul>
+        </div>
+        <div class=\"content\">
+            <a href=\"?controller=ASIGNATURA&action=SEARCH\"><img src='../View/icons/search-icon (1).png'> </a>
+            <a href=\"?controller=ASIGNATURA&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
         <h1>{{header}}</h1>
        {{data}}
+       <a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
        </div>
         </html>";
     const TITTLE_KEY = "{{tittle}}";
@@ -117,9 +140,15 @@ class ASIGNATURA_SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
+<<<<<<< HEAD
             $table.='<td><a href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="View/icons/iconEdit.png"/> </a> 
                      <a href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="View/icons/Eraser-icon.png"/></a>
                      <a href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="View/icons/Search-icon.png"/></a></td>';
+=======
+            $table.='<td><a href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="../View/icons/iconEdit.png"/> </a> 
+                     <a href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="../View/icons/Eraser-icon.png"/></a>
+                     <a href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="../View/icons/Search-icon.png"/></a></td>';
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";

@@ -1,33 +1,38 @@
 <?php
 
-class SHOWALL_View
+/*class index_View {
+
+    function __construct(){
+        $this->render();
+    }
+
+    function render(){
+       include 'header.php';
+       include 'menuLateral.php';
+       include 'footer.php';
+    }*/
+class index_View
 {
     const HTML_SKELETON = "
         <html>
         <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
-<<<<<<< HEAD
-            <link rel='stylesheet' href='View/css/container.css'>
-=======
             <link rel='stylesheet' href='../View/css/showall.css'>
->>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
         </head>
         <body>
         <div class=\"container\">
              <div class=\"header\">
-             <a href='../Controller/desconectar.php' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
+             <a href='../Controller/desconectar.php' methods='post'><img src='../View/icons/Button-Close-icon.png'></a>
              </div>
         <div class=\"sidebar\">
              <ul>
-                 <li><a href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
-                 <li><a href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
+                 <li><a href=\"../Controller/ALUMNO_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de alumnos</a></li>
+                 <li><a href=\"../Controller/ASIGNATURA_Controller.php?action=SHOWALL\" methods=\"post\">Gestión de asignaturas</a></li>
              </ul>
         </div>
         <div class=\"content\">
-            <a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
         <h1>{{header}}</h1>
-       {{data}}
        </div>
         <div class=\"footer\">
         <h2>Página generada el día:</h2>
@@ -67,10 +72,9 @@ class SHOWALL_View
      * @param array $field_list Campos a mostrar en la lista
      * @param array $values_list Lista de valores
      */
-    public function __construct($field_list, $values_list)
+    public function __construct()
     {
-        $this->field_list = $field_list;
-        $this->values_list = $values_list;
+        $this->render();
     }
 
     /**
@@ -109,35 +113,9 @@ class SHOWALL_View
     {
         $html = str_replace(self::TITTLE_KEY, $this->tittle, self::HTML_SKELETON);
         $html = str_replace(self::HEADER_KEY, $this->header, $html);
-        $html = str_replace(self::DATA_KEY, $this->generateTable(), $html);
+
         print ($html);
     }
 
-    private function generateTable()
-    {
-        $table = "<table>";
-        $table = $table . "<tr>";
-        foreach ($this->field_list as $field) {
-            $table = $table . "<th>" . utf8_encode($field . "</th>");
-        }
-        $table.="<th>CONTROLES</th>";
-        $table=$table."</tr>";
-        foreach ($this->values_list as $value) {
-            $table = $table . "<tr>";
-            foreach ($this->field_list as $field) {
-                if (isset($value[$field]) && !is_null($value[$field])) {
-                    $table = $table . "<td>" . utf8_encode($value[$field]) . "</td>";
-                } else {
-                    $table = $table . "<td> </td>";
-                }
-            }
-            $table.='<td><a href="?controller='.$_GET["controller"].'&action=UPDATE&id='.$value[$field].'"><img src="../View/icons/iconEdit.png"/> </a> 
-                     <a href="?controller='.$_GET["controller"].'&action=DELETE&id='.$value[$field].'"><img src="../View/icons/Eraser-icon.png"/></a>
-                     <a href="?controller='.$_GET["controller"].'&action=SHOWCURRENT&id='.$value[$field].'"><img src="../View/icons/Search-icon.png"/></a></td>';
-            $table = $table . "</tr>";
-        }
-        $table = $table . "</table>";
-        return $table;
 
-    }
 }
