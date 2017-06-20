@@ -9,11 +9,13 @@
 class ALUMNO_DELETE_View
 {
     private $values_list;
+
     public function __construct($values_list)
     {
         //parent::__construct($field_list, $values_list);
-        $this->values_list=$values_list;
+        $this->values_list = $values_list;
     }
+
     /**
      * @return array
      */
@@ -29,16 +31,33 @@ class ALUMNO_DELETE_View
     {
         $this->values_list = $values_list;
     }
-    public function render(){
+
+    public function render()
+    {
         ?>
         <html>
         <head>
             <title>Delete Alumno</title>
+<<<<<<< HEAD
+            <link rel="stylesheet" type="text/css" href="View/css/container.css">
+            <link rel="stylesheet" type="text/css" href="View/css/header.css">
+            <link rel="stylesheet" type="text/css" href="View/css/sidebar.css">
+            <link rel="stylesheet" type="text/css" href="View/css/footer.css">
+=======
             <link rel="stylesheet" type="text/css" href="../View/css/delete.css">
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
             <meta charset="UTF-8">
         </head>
         <body>
         <div class="container">
+<<<<<<< HEAD
+            <?php
+            include "View/header.php";
+            ?>
+            <?php
+            include "View/sidebar.php";
+            ?>
+=======
             <div class="header">
                 <a href='../Controller/desconectar.php' method='post'><img src='../View/icons/Button-Close-icon.png'></a>
             </div>
@@ -63,25 +82,33 @@ class ALUMNO_DELETE_View
 
             <label for="apellidos">Apellidos <?php echo $this->values_list["apellidos"]; ?></label><br>
             <br>
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
 
-            <label for="fecha_nacimiento">Fecha_Nacimiento <?php echo $this->values_list["fecha_nacimiento"]; ?></label><br>
-            <br>
+            <div class="content">
+                <a href="?controller=ALUMNO&action=SHOWALLView"><img src='View/icons/Industry-Return-icon%20(1).png'></a>
+                <a href="?controller=ALUMNO&action=ADD"><img src='View/icons/Button-Add-icon.png'> </a>
+                <h1>Borrar Alumno</h1>
+                <form
+                        action="?controller=ALUMNO&action=DELETE&id=<?php echo $this->values_list["dni"]; ?>"
+                        method="post">
 
-            <label for="telefono">Telefono <?php echo $this->values_list["telefono"]; ?></label><br>
-            <br>
+                            <label for="dni">DNI <?php echo $this->values_list["dni"]; ?></label>
 
-            <label for="direccion">Direccion <?php echo $this->values_list["direccion"]; ?></label><br>
-            <br>
+                            <input type="hidden" name="DNI" value="<?php echo $this->values_list["dni"]; ?>"><br>
 
+                            <label for="nombre">Nombre <?php echo $this->values_list["nombre"]; ?></label><br>
 
-            <label for="es_becario">Es_Becario <?php echo $this->values_list["es_becario"]; ?></label><br>
-            <br>
+                            <label for="apellidos">Apellidos <?php echo $this->values_list["apellidos"]; ?></label><br>
 
-            <input type="submit" value="Borrar">
+                            <label for="fecha_nacimiento">Fecha_Nacimiento <?php echo $this->values_list["fecha_nacimiento"]; ?></label><br>
 
+                            <label for="telefono">Telefono <?php echo $this->values_list["telefono"]; ?></label><br>
 
+                            <label for="direccion">Direccion <?php echo $this->values_list["direccion"]; ?></label><br>
 
-
+<<<<<<< HEAD
+                            <label for="es_becario">Es_Becario <?php echo $this->values_list["es_becario"]; ?></label><br>
+=======
         </form>
                 <a href="?controller=ALUMNO&action=SHOWALLView"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
             </div>
@@ -100,9 +127,14 @@ class ALUMNO_DELETE_View
                     if (daym<10)
                         daym="0"+daym;
                     document.write("<big><font color='000000' face='Arial'><b>"+daym+"/"+month+"/"+year+"</b></font></big>")
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
 
-                </script>
+                            <input type="submit" value="Borrar"><br>
+                </form>
             </div>
+            <?php
+            include "View/footer.php";
+            ?>
         </div>
         </body>
         </html>

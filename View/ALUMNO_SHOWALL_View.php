@@ -14,6 +14,8 @@ class ALUMNO_SHOWALL_View
         $this->tittle = "Listado Alumnos";
         $this->header = "Listado Alumnos";
     }
+<<<<<<< HEAD
+=======
     const HTML_SKELETON = "
         <html>
         <head class='encabezado'>
@@ -56,11 +58,16 @@ class ALUMNO_SHOWALL_View
  document.write(\"<big><font color='000000' face='Arial'><b>\"+daym+\"/\"+month+\"/\"+year+\"</b></font></big>\") 
 
 </script> 
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
 
-        </div>
-        </div>
-        </body>
-        </html>";
+    const HTML_SKELETON = "
+               
+                <div class=\"content\">
+                    <a href=\"?controller=ALUMNO&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+                    <a href=\"?controller=ALUMNO&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+                    <h1>{{header}}</h1>
+                    {{data}}
+                </div>";
     const TITTLE_KEY = "{{tittle}}";
     protected $tittle;
 
@@ -107,10 +114,31 @@ class ALUMNO_SHOWALL_View
 
     public function render()
     {
-        $html = str_replace(self::TITTLE_KEY, $this->tittle, self::HTML_SKELETON);
-        $html = str_replace(self::HEADER_KEY, $this->header, $html);
+        $html = str_replace(self::HEADER_KEY, $this->header,  self::HTML_SKELETON);
         $html = str_replace(self::DATA_KEY, $this->generateTable(), $html);
-        print ($html);
+        ?>
+
+        <html>
+        <head class='encabezado'>
+            <meta charset="UTF-8">
+            <title><?php echo $this->tittle?></title>
+            <link rel='stylesheet' type="text/css" href='View/css/container.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/header.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/sidebar.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/footer.css'>
+        </head>
+        <body>
+        <div class="container">
+            <?php
+            include "View/header.php";
+            include "View/sidebar.php";
+            print ($html);
+            include "View/footer.php";
+            ?>
+        </div>
+        </body>
+        </html>
+        <?php
     }
 
     private function generateTable()
@@ -120,8 +148,8 @@ class ALUMNO_SHOWALL_View
         foreach ($this->field_list as $field) {
             $table = $table . "<th>" . utf8_encode($field . "</th>");
         }
-        $table.="<th>CONTROLES</th>";
-        $table=$table."</tr>";
+        $table .= "<th>CONTROLES</th>";
+        $table = $table . "</tr>";
         foreach ($this->values_list as $value) {
             $table = $table . "<tr>";
             foreach ($this->field_list as $field) {
@@ -131,9 +159,15 @@ class ALUMNO_SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
+<<<<<<< HEAD
+            $table .= '<td><a href="?controller=ALUMNO&action=UPDATE&id=' . $value["dni"] . '"><img src="View/icons/iconEdit.png"/> </a> 
+                     <a href="?controller=ALUMNO&action=DELETE&id=' . $value["dni"] . '"><img src="View/icons/Eraser-icon.png"/></a>
+                     <a href="?controller=ALUMNO&action=SHOWCURRENT&id=' . $value["dni"] . '"><img src="View/icons/Search-icon.png"/></a></td>';
+=======
             $table.='<td><a href="?controller=ALUMNO&action=UPDATE&id='.$value["dni"].'"><img src="../View/icons/iconEdit.png"/> </a> 
                      <a href="?controller=ALUMNO&action=DELETE&id='.$value["dni"].'"><img src="../View/icons/Eraser-icon.png"/></a>
                      <a href="?controller=ALUMNO&action=SHOWCURRENT&id='.$value["dni"].'"><img src="../View/icons/Search-icon.png"/></a></td>';
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";

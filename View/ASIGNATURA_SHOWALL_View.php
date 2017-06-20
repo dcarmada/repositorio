@@ -18,6 +18,12 @@ class ASIGNATURA_SHOWALL_View
     }
     const HTML_SKELETON = "
         <html>
+<<<<<<< HEAD
+        
+        <div class=\"content\">
+            <a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+            <a href=\"?controller=ASIGNATURA&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+=======
         <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
@@ -37,31 +43,11 @@ class ASIGNATURA_SHOWALL_View
         <div class=\"content\">
             <a href=\"?controller=ASIGNATURA&action=SEARCH\"><img src='../View/icons/search-icon (1).png'> </a>
             <a href=\"?controller=ASIGNATURA&action=ADD\"><img src='../View/icons/Button-Add-icon.png'> </a>
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
         <h1>{{header}}</h1>
        {{data}}
        <a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='../View/icons/Industry-Return-icon%20(1).png'> </a>
        </div>
-        <div class=\"footer\">
-        <h2>Página generada el día:</h2>
-        <script> 
- var mydate=new Date(); 
- var year=mydate.getYear(); 
- if (year < 1000) 
- year+=1900; 
- var day=mydate.getDay(); 
- var month=mydate.getMonth()+1; 
- if (month<10) 
- month=\"0\"+month; 
- var daym=mydate.getDate(); 
- if (daym<10) 
- daym=\"0\"+daym; 
- document.write(\"<big><font color='000000' face='Arial'><b>\"+daym+\"/\"+month+\"/\"+year+\"</b></font></big>\") 
-
-</script> 
-
-        </div>
-        </div>
-        </body>
         </html>";
     const TITTLE_KEY = "{{tittle}}";
     protected $tittle;
@@ -109,10 +95,31 @@ class ASIGNATURA_SHOWALL_View
 
     public function render()
     {
-        $html = str_replace(self::TITTLE_KEY, $this->tittle, self::HTML_SKELETON);
-        $html = str_replace(self::HEADER_KEY, $this->header, $html);
+        $html = str_replace(self::HEADER_KEY, $this->header,  self::HTML_SKELETON);
         $html = str_replace(self::DATA_KEY, $this->generateTable(), $html);
-        print ($html);
+        ?>
+
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title><?php echo $this->tittle?></title>
+            <link rel='stylesheet' type="text/css" href='View/css/container.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/header.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/sidebar.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/footer.css'>
+        </head>
+        <body>
+        <div class="container">
+            <?php
+            include "View/header.php";
+            include "View/sidebar.php";
+            print ($html);
+            include "View/footer.php";
+            ?>
+        </div>
+        </body>
+        </html>
+        <?php
     }
 
     private function generateTable()
@@ -133,9 +140,15 @@ class ASIGNATURA_SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
+<<<<<<< HEAD
+            $table.='<td><a href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="View/icons/iconEdit.png"/> </a> 
+                     <a href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="View/icons/Eraser-icon.png"/></a>
+                     <a href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="View/icons/Search-icon.png"/></a></td>';
+=======
             $table.='<td><a href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="../View/icons/iconEdit.png"/> </a> 
                      <a href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="../View/icons/Eraser-icon.png"/></a>
                      <a href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="../View/icons/Search-icon.png"/></a></td>';
+>>>>>>> ef2e53a93bf697ca2dd0d1afe2934819bfa3e679
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";
