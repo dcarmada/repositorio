@@ -1,7 +1,7 @@
 <?php
 
 
-class ASIGNATURA_SHOWALL_View extends SHOWALL_View
+class ASIGNATURA_SHOWALL_View
 {
 
     /**
@@ -18,49 +18,13 @@ class ASIGNATURA_SHOWALL_View extends SHOWALL_View
     }
     const HTML_SKELETON = "
         <html>
-        <head class='encabezado'>
-            <meta charset=\"UTF-8\">
-            <title>{{tittle}}</title>
-            <link rel='stylesheet' href='View/css/showall.css'>
-        </head>
-        <body>
-        <div class=\"container\">
-             <div class=\"header\">
-             <a class='enlace' href='?controller=ALUMNO&action=SHOWALL' method='post' ><img src='View/icons/Button-Close-icon.png'align='center'></a>
-             </div>
-        <div class=\"sidebar\">
-             <ul>
-                 <li><a class=\"enlace\" href=\"?controller=ALUMNO&action=SHOWALL\" method=\"post\">Gestión de alumnos</a></li>
-                 <li><a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALL\" method=\"post\">Gestión de asignaturas</a></li>
-             </ul>
-        </div>
+        
         <div class=\"content\">
-            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
-            <a class=\"enlace\" href=\"?controller=ASIGNATURA&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
+            <a href=\"?controller=ASIGNATURA&action=SHOWALLView\"><img src='View/icons/Industry-Return-icon%20(1).png'> </a>
+            <a href=\"?controller=ASIGNATURA&action=ADD\"><img src='View/icons/Button-Add-icon.png'> </a>
         <h1>{{header}}</h1>
        {{data}}
        </div>
-        <div class=\"footer\">
-        <h2>Página generada el día:</h2>
-        <script> 
- var mydate=new Date(); 
- var year=mydate.getYear(); 
- if (year < 1000) 
- year+=1900; 
- var day=mydate.getDay(); 
- var month=mydate.getMonth()+1; 
- if (month<10) 
- month=\"0\"+month; 
- var daym=mydate.getDate(); 
- if (daym<10) 
- daym=\"0\"+daym; 
- document.write(\"<big><font color='000000' face='Arial'><b>\"+daym+\"/\"+month+\"/\"+year+\"</b></font></big>\") 
-
-</script> 
-
-        </div>
-        </div>
-        </body>
         </html>";
     const TITTLE_KEY = "{{tittle}}";
     protected $tittle;
@@ -108,10 +72,31 @@ class ASIGNATURA_SHOWALL_View extends SHOWALL_View
 
     public function render()
     {
-        $html = str_replace(self::TITTLE_KEY, $this->tittle, self::HTML_SKELETON);
-        $html = str_replace(self::HEADER_KEY, $this->header, $html);
+        $html = str_replace(self::HEADER_KEY, $this->header,  self::HTML_SKELETON);
         $html = str_replace(self::DATA_KEY, $this->generateTable(), $html);
-        print ($html);
+        ?>
+
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title><?php echo $this->tittle?></title>
+            <link rel='stylesheet' type="text/css" href='View/css/container.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/header.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/sidebar.css'>
+            <link rel='stylesheet' type="text/css" href='View/css/footer.css'>
+        </head>
+        <body>
+        <div class="container">
+            <?php
+            include "View/header.php";
+            include "View/sidebar.php";
+            print ($html);
+            include "View/footer.php";
+            ?>
+        </div>
+        </body>
+        </html>
+        <?php
     }
 
     private function generateTable()
@@ -132,9 +117,9 @@ class ASIGNATURA_SHOWALL_View extends SHOWALL_View
                     $table = $table . "<td> </td>";
                 }
             }
-            $table.='<td><a class="enlace" href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="View/icons/iconEdit.png"/> </a> 
-                     <a class="enlace" href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="View/icons/Eraser-icon.png"/></a>
-                     <a class="enlace" href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="View/icons/Search-icon.png"/></a></td>';
+            $table.='<td><a href="?controller=ASIGNATURA&action=UPDATE&id='.$value["id"].'"><img src="View/icons/iconEdit.png"/> </a> 
+                     <a href="?controller=ASIGNATURA&action=DELETE&id='.$value["id"].'"><img src="View/icons/Eraser-icon.png"/></a>
+                     <a href="?controller=ASIGNATURA&action=SHOWCURRENT&id='.$value["id"].'"><img src="View/icons/Search-icon.png"/></a></td>';
             $table = $table . "</tr>";
         }
         $table = $table . "</table>";

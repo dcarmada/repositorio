@@ -7,7 +7,7 @@ class SHOWALL_View
         <head class='encabezado'>
             <meta charset=\"UTF-8\">
             <title>{{tittle}}</title>
-            <link rel='stylesheet' href='View/css/showall.css'>
+            <link rel='stylesheet' href='View/css/container.css'>
         </head>
         <body>
         <div class=\"container\">
