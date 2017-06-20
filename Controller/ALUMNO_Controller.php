@@ -6,6 +6,9 @@ include_once "../View/ALUMNO_SHOWALL_View.php";
 include_once "../View/ALUMNO_UPDATE_View.php";
 include_once "../View/ALUMNO_DELETE_View.php";
 include_once "../View/ALUMNO_SEARCH_View.php";
+
+include_once "change_language.php";
+
 //$controller = "ALUMNO";
 /*if (isset($_GET["controller"])) {
     $controller = $_GET["controller"];

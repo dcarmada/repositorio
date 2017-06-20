@@ -10,6 +10,8 @@ $strings =
         'Borrado'=>'Borradp',
         'Actualizado'=>'Actualizado',
         'Falta id'=>'Falta Id',
+        'usuario'=>'usuario',
+        'contraseña'=>'contraseña',
         'login'=>'login',
         'password'=>'password',
         'Ya existe en la base de datos'=>'Ya existe en la base de datos',
@@ -29,9 +31,8 @@ $strings =
         'Alumno'=>'Alumno',
         'Asignatura'=>'Asignatura',
         'idioma'=>'idioma',
-        'ESPAÑOL'=>'Spanish',
-        'INGLES'=>'Inglés',
-        'GALLEGO'=>'Gallego',
+        'español'=>'español',
+        'inglés'=>'inglés',
         'Añadir'=>'Añadir',
         'Actualizar'=>'Actualizar',
         'Borrar'=>'Borrar',
@@ -57,7 +58,9 @@ $strings =
         'num_creditos'=>'num_creditos',
         'departamento'=>'departamento',
         'categoria'=>'categoria',
-        'FALTA ACCIÓN'=>'FALTA ACCIÓN'
+        'Página generada el día'=>'Página generada el día',
+        'FALTA ACCIÓN'=>'FALTA ACCIÓN',
+        'iniciar sesión'=>'iniciar sesión'
     )
 ;
 ?>

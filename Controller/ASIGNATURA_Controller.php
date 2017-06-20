@@ -6,6 +6,9 @@ include_once "../View/ASIGNATURA_SHOWALL_View.php";
 include_once "../View/ASIGNATURA_UPDATE_View.php";
 include_once "../View/ASIGNATURA_DELETE_View.php";
 include_once "../View/ASIGNATURA_SEARCH_View.php";
+
+include_once "change_language.php";
+
 $action = "showAll";
 if (isset($_GET["action"])) {
     $action = strtoupper($_GET["action"]);

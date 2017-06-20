@@ -8,8 +8,11 @@
 $strings =
     array(
         'Borrado'=>'Deleted',
+        'contraseña'=>'password',
+        'Página generada el día'=>'Page generated on day',
         'Actualizado'=>'Updated',
         'Falta id'=>'Lacking Id',
+        'usuario'=>'user',
         'login'=>'login',
         'password'=>'password',
         'Ya existe en la base de datos'=>'Already exists in the database',
@@ -29,9 +32,8 @@ $strings =
         'Alumno'=>'Student',
         'Asignatura'=>'Subject',
         'idioma'=>'Language',
-        'ESPAÑOL'=>'Spanish',
-        'INGLES'=>'English',
-        'GALLEGO'=>'Gallaecian',
+        'español'=>'spanish',
+        'inglés'=>'english',
         'Añadir'=>'Add',
         'Actualizar'=>'Update',
         'Borrar'=>'Delete',
@@ -57,7 +59,8 @@ $strings =
         'num_creditos'=>'number of credits',
         'departamento'=>'department',
         'categoria'=>'category',
-        'FALTA ACCIÓN'=>'LACKING ACTION'
+        'FALTA ACCIÓN'=>'LACKING ACTION',
+        'iniciar sesión'=>'log in'
         )
 ;
 ?>

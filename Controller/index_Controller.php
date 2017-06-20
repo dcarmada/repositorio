@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+
+include_once "change_language.php";
+
 include 'login_Controller.php';
 if(login()){
     header('Location:../index.php');
